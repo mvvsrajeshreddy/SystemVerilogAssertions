@@ -36,7 +36,7 @@ assert_only1_grant: assert ( $isonehot({gnt1,gnt2,gnt3}) )
 //Rule2: If not in Reset - none of  gnt1/2/3 should be X/Z
 always @ (posedge clk) begin
   if (!resetn) begin
-     assert_gnt_check_x: assert (not(isunknown({gnt1,gnt2,gnt3})))
+	  assert_gnt_check_x: assert (not($isunknown({gnt1,gnt2,gnt3})))
                          else begin
 			   $error("Gnt1/2/3 going X ");
 			 end
